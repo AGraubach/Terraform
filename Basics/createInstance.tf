@@ -4,6 +4,6 @@ resource "aws_instance" "FirstInstance" {
     instance_type = "Enter instance type" # Ex.: t2.micro
 
     tags = {
-        Name = "threedemoinstance"
+        Name = "demo-instance-${count.index}"
     }
 }
