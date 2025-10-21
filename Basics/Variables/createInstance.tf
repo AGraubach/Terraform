@@ -1,5 +1,5 @@
-resource "aws" "CreateInstance" {
-    ami = "ami-001209a78b30e703c"
+resource "aws_instance" "CreateInstance" {
+    ami = lookup(var.AMIS, var.AWS_REGION)
     instance_type = "t2.micro"
 
     tags = {
