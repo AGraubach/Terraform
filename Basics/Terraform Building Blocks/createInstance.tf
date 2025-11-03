@@ -6,7 +6,6 @@ resource "aws_instance" "MyFirstInstance" {
     ami = lookup(var.AMIS, var.AWS_REGION)
     instance_type = "t2.micro"
     key_name = aws_key_pair.levelup_key.key_name
-    security_groups = ["${var.Security_Group}"]
 
     tags = {
         Name = "custom_instance"
