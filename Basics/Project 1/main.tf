@@ -166,8 +166,6 @@ resource "aws_vpc_security_group_ingress_rule" "allow_alb_http_inbound" {
 resource "aws_vpc_security_group_egress_rule" "allow_alb_http_outbound" {
     security_group_id = aws_security_group.alb_security_group.id
     cidr_ipv4 = "0.0.0.0/0"
-    from_port = 0
-    to_port = 0
     ip_protocol = "-1"
 }
 
