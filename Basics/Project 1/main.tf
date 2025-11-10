@@ -147,6 +147,7 @@ resource "aws_db_instance" "default" {
     engine = "mysql"
     engine_version = "8.0"
     instance_class = "db.t3.micro"
+    username = "username-db"
 }
 
 resource "aws_security_group" "alb_security_group" {
