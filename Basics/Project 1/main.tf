@@ -64,19 +64,17 @@ data "aws_vpc" "default" {
     default = true
 }
 
-data "aws_subnet_ids" "default_subnet" {
-    vpc_id = data.aws_vpc.default.id
-}
+data "aws_subnets" "default_subnet" {}
 
 resource "aws_security_group" "instances" {
     name = "instance-security-group"
 }
-resource "aws_security_group_ingress_rule" "allow_http_inbound" {
+resource "aws_vpc_security_group_ingress_rule" "allow_http_inbound" {
     security_group_id = aws_security_group.instances.id
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_ipv4 = "0.0.0.0/0"
     from_port = 8080
     to_port = 8080
-    protocol = "tcp"
+    ip_protocol = "tcp"
 }
 
 resource "aws_lb_listener" "http_listener" {
