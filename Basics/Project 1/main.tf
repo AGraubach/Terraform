@@ -148,6 +148,7 @@ resource "aws_db_instance" "default" {
     engine_version = "8.0"
     instance_class = "db.t3.micro"
     username = "username-db"
+    manage_master_user_password = true
 }
 
 resource "aws_security_group" "alb_security_group" {
