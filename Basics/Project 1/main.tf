@@ -6,8 +6,13 @@ terraform {
       }
     }
 }
+variable "AWS_ACCESS_KEY" {}
+variable "AWS_SECRET_KEY" {}
+
 provider "aws" {
     region = "us-east-1"
+    access_key = var.AWS_ACCESS_KEY
+    secret_key = var.AWS_SECRET_KEY
 }
 
 resource "aws_instance" "First_instance" {
@@ -168,6 +173,6 @@ resource "aws_lb" "load_balancer" {
     name = "web-load-balancer"
     load_balancer_type = "application"
     security_groups = [aws_security_group.alb_security_group.id]
-    subnets = data.aws_subnet_ids.default_subnet.ids
+    subnets = data.aws_subnets.default_subnet.ids
 }
 
