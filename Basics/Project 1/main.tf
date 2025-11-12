@@ -149,6 +149,7 @@ resource "aws_db_instance" "default" {
     instance_class = "db.t3.micro"
     username = "usernamedb"
     password = "passworddb"
+    skip_final_snapshot = true
 }
 
 resource "aws_security_group" "alb_security_group" {
